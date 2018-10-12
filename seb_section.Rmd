@@ -1,0 +1,75 @@
+---
+title: '203 Section Week 2'
+author: "rachel torres"
+date: "10/5/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Part 1: Surface Energy Balance 
+
+```{r, sun, fig.align="center", echo=FALSE}
+knitr::include_graphics("https://media.giphy.com/media/1BFEORh29cfmPzV80F/giphy.gif")
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Part 3: Los Angeles Neighborhoods
+
+```{r data, include=FALSE}
+la <- read.csv("Bren203_F18_LA_Data - Bren203_F18_LA_Data.csv")
+
+```
+
+### Temperature and NDVI 
+
+- What is NDVI? 
+- What should we expect from this relationship? 
+- What does a high NDVI tell us about a neighborhood's water use? 
+
+```{r temp_veg, echo=FALSE, warning=FALSE}
+ggplot(la, aes(x=temp_mean, y=ndvi_mean, col=median_inc)) + 
+  geom_jitter() + 
+  scale_color_gradient(low="red", high="green") + 
+  geom_smooth(method=lm, col='black', show.legend = T) + 
+  theme_bw() + 
+  ggtitle("Temp. v. NDVI by neighborhood and median income") + 
+  ylab("average NDVI") + 
+  xlab("average temperature (deg C)")
+
+ggplot(la, aes(x=temp_mean, y=ndvi_mean, col=(1-pct_white))) + 
+  geom_jitter() + 
+  scale_color_gradient(low="red", high="green") + 
+  geom_smooth(method=lm, col='black', show.legend = T) + 
+  theme_bw() + 
+  ggtitle("Temp. v. NDVI by neighborhood and minority population") + 
+  ylab("average NDVI") + 
+  xlab("average temperature (deg C)")
+
+
+```
+
+- Do you think there is a relationship here? 
+- What do you think prevents us from finding a correlation?
+- What other relationships did you find? 
+
+<br>
+<br>
+<br>
+
+Tayyebi and Jenerette found that NDVI and LST were negatively correlated across coastal, inland, and desert zones:
+![](Tayyebi&Jenerette.png)
+
+Tayyebi, Amin, and Darrel G Jenerette. “Increases in the Climate Change Adaption Effectiveness and Availability of Vegetation across a Coastal to Desert Climate Gradient in Metropolitan Los Angeles, CA, USA.” Science of The Total Environment 548-549: 60–71. 
+
+
+
+
