@@ -1,4 +1,6 @@
-seb_section.Rmd - code for LA neighborhood graphs
+files that are included from week 2 - surface energy balance discussion
+----------------------------------------------------------------------------
+seb_section.Rmd - code for LA neighborhood graphs and markdown
 seb_section.html - output from seb_section.Rmd 
 Bren203_F18_LA_Data - Bren203_F18_LA_Data - data set needed for seb_section.Rmd
 Homework1_Part2_help - document to help with starting Rmarkdown in homework 
